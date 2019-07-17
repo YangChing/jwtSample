@@ -29,7 +29,7 @@ Login
 ```bash
 curl -X POST "/api/v1/member/login" \
     -H "Content-Type: application/json" \
-    -d '{"account":"ducimus","password":"dicta"}'
+    -d '{"account":"in","password":"voluptatem"}'
 
 ```
 
@@ -42,8 +42,8 @@ let headers = {
 }
 
 let body = {
-    "account": "ducimus",
-    "password": "dicta"
+    "account": "in",
+    "password": "voluptatem"
 }
 
 fetch(url, {
@@ -70,6 +70,21 @@ fetch(url, {
     "code": 401,
     "message": "Unauthorized",
     "errors": []
+}
+```
+> Example response (422):
+
+```json
+{
+    "url": "http:\/\/backend.test\/api\/v1\/member\/login",
+    "method": "POST",
+    "code": 422,
+    "message": "The given data was invalid.",
+    "errors": {
+        "account": [
+            "The account field is required."
+        ]
+    }
 }
 ```
 > Example response (500):
@@ -105,7 +120,7 @@ Register New User
 ```bash
 curl -X POST "/api/v1/member/register" \
     -H "Content-Type: application/json" \
-    -d '{"name":"accusamus","address":"alias","phone":"ad","account":"ut","password":"nam","mail":"molestias"}'
+    -d '{"name":"ut","address":"veniam","phone":"tempora","account":"ut","password":"nisi","mail":"nemo"}'
 
 ```
 
@@ -118,12 +133,12 @@ let headers = {
 }
 
 let body = {
-    "name": "accusamus",
-    "address": "alias",
-    "phone": "ad",
+    "name": "ut",
+    "address": "veniam",
+    "phone": "tempora",
     "account": "ut",
-    "password": "nam",
-    "mail": "molestias"
+    "password": "nisi",
+    "mail": "nemo"
 }
 
 fetch(url, {
@@ -165,6 +180,21 @@ fetch(url, {
     "code": 101,
     "message": "user is exist",
     "errors": []
+}
+```
+> Example response (422):
+
+```json
+{
+    "url": "http:\/\/backend.test\/api\/v1\/member\/register",
+    "method": "POST",
+    "code": 422,
+    "message": "The given data was invalid.",
+    "errors": {
+        "account": [
+            "The account field is required."
+        ]
+    }
 }
 ```
 > Example response (500):

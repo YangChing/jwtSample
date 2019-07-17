@@ -57,7 +57,7 @@
 </blockquote>
 <pre><code class="language-bash">curl -X POST "/api/v1/member/login" \
     -H "Content-Type: application/json" \
-    -d '{"account":"ducimus","password":"dicta"}'
+    -d '{"account":"in","password":"voluptatem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/v1/member/login");
 
@@ -67,8 +67,8 @@ let headers = {
 }
 
 let body = {
-    "account": "ducimus",
-    "password": "dicta"
+    "account": "in",
+    "password": "voluptatem"
 }
 
 fetch(url, {
@@ -91,6 +91,20 @@ fetch(url, {
     "code": 401,
     "message": "Unauthorized",
     "errors": []
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "url": "http:\/\/backend.test\/api\/v1\/member\/login",
+    "method": "POST",
+    "code": 422,
+    "message": "The given data was invalid.",
+    "errors": {
+        "account": [
+            "The account field is required."
+        ]
+    }
 }</code></pre>
 <blockquote>
 <p>Example response (500):</p>
@@ -139,7 +153,7 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-bash">curl -X POST "/api/v1/member/register" \
     -H "Content-Type: application/json" \
-    -d '{"name":"accusamus","address":"alias","phone":"ad","account":"ut","password":"nam","mail":"molestias"}'
+    -d '{"name":"ut","address":"veniam","phone":"tempora","account":"ut","password":"nisi","mail":"nemo"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/v1/member/register");
 
@@ -149,12 +163,12 @@ let headers = {
 }
 
 let body = {
-    "name": "accusamus",
-    "address": "alias",
-    "phone": "ad",
+    "name": "ut",
+    "address": "veniam",
+    "phone": "tempora",
     "account": "ut",
-    "password": "nam",
-    "mail": "molestias"
+    "password": "nisi",
+    "mail": "nemo"
 }
 
 fetch(url, {
@@ -192,6 +206,20 @@ fetch(url, {
     "code": 101,
     "message": "user is exist",
     "errors": []
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "url": "http:\/\/backend.test\/api\/v1\/member\/register",
+    "method": "POST",
+    "code": 422,
+    "message": "The given data was invalid.",
+    "errors": {
+        "account": [
+            "The account field is required."
+        ]
+    }
 }</code></pre>
 <blockquote>
 <p>Example response (500):</p>
